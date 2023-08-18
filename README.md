@@ -2,4 +2,4 @@
 
 Front-end framework for Aangular (v16)
 
-Components
+Components, pipes, directives, and more..
