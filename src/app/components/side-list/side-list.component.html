@@ -1,7 +1,7 @@
 <mat-nav-list class="list">
   <a
     mat-list-item
-    routerLink="{{ link.route }}"
+    [routerLink]="link.route"
     *ngFor="let link of links"
     [activated]="link.isActive"
     >{{ link.text }}</a

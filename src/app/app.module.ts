@@ -18,5 +18,6 @@ import { ShellModule } from './shell/shell.module';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
