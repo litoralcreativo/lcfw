@@ -14,10 +14,15 @@
       top: 0;
       z-index: 2;
     }
+    min-width: 200px;
   }
 
   .right-side {
     flex-grow: 1;
     padding: 1rem 2rem;
+
+    > .right-side-container {
+      width: max-content;
+    }
   }
 }
