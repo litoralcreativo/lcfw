@@ -1,0 +1,58 @@
+<h2>API del Componente Tabla</h2>
+<p>
+  El componente de tabla proporciona una serie de propiedades y métodos que
+  permiten a los desarrolladores personalizar y controlar su comportamiento y
+  apariencia. A continuación, se presentan las propiedades y métodos más
+  importantes disponibles en el componente de tabla:
+</p>
+
+<h3>Propiedades</h3>
+<h4>data: any[]</h4>
+<p>
+  Un arreglo de objetos que representa los datos a mostrar en la tabla. Cada
+  objeto debe tener las propiedades que corresponden a las columnas definidas.
+</p>
+
+<h4>columnas: TableColumn[]</h4>
+<p>
+  Un arreglo de objetos TableColumn que define las columnas de la tabla. Cada
+  objeto debe tener las propiedades necesarias para configurar la apariencia y
+  el comportamiento de la columna.
+</p>
+
+<h4>orden: string</h4>
+<p>
+  El nombre de la columna por la cual se realiza el ordenamiento inicial. Esta
+  propiedad permite establecer la columna de ordenamiento predeterminada cuando
+  se carga la tabla.
+</p>
+
+<h3>Métodos</h3>
+<h4>filtrar(dato: string): void</h4>
+<p>
+  Aplica un filtro a la tabla para mostrar solo los datos que coincidan con el
+  valor proporcionado en la entrada de filtro. El parámetro `dato` es el valor a
+  buscar en los datos.
+</p>
+
+<h4>ordenar(columna: string, direccion: string): void</h4>
+<p>
+  Ordena los datos de la tabla en función de la columna especificada y la
+  dirección de orden. El parámetro `columna` es el nombre de la columna y
+  `direccion` puede ser "ascendente" o "descendente".
+</p>
+
+<h4>limpiarFiltro(): void</h4>
+<p>Quita cualquier filtro aplicado y muestra todos los datos en la tabla.</p>
+
+<h4>limpiarOrden(): void</h4>
+<p>
+  Quita cualquier ordenamiento aplicado y restablece el orden original de los
+  datos en la tabla.
+</p>
+
+<p>
+  Estas propiedades y métodos permiten a los desarrolladores interactuar con el
+  componente de tabla, personalizar su comportamiento y proporcionar una
+  experiencia de usuario rica en datos.
+</p>

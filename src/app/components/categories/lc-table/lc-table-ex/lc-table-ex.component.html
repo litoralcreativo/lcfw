@@ -1,0 +1,65 @@
+<h2>Ejemplos del Componente Tabla</h2>
+<p>
+  En esta sección, se presentan algunos ejemplos prácticos de cómo utilizar el
+  componente de tabla en diferentes escenarios. Estos ejemplos ayudarán a los
+  desarrolladores a comprender cómo implementar y personalizar el componente
+  para satisfacer sus necesidades específicas.
+</p>
+
+<h3>Ejemplo 1: Tabla Básica</h3>
+<p>
+  En este ejemplo, mostraremos cómo crear una tabla simple con datos
+  predefinidos. La tabla contendrá columnas como "Nombre", "Edad" y "País".
+</p>
+
+<pre>
+<code>&lt;app-tabla [data]="datos" [columnas]="columnas" [orden]="ordenInicial"&gt;&lt;/app-tabla&gt;</code>
+</pre>
+
+<p>
+  En este caso, `datos` es un arreglo de objetos que contiene información sobre
+  las personas, `columnas` define las columnas que se mostrarán en la tabla, y
+  `ordenInicial` establece la columna inicial de ordenamiento.
+</p>
+
+<h3>Ejemplo 2: Tabla con Filtros</h3>
+<p>
+  En este ejemplo, mostraremos cómo agregar la capacidad de filtrar los datos en
+  la tabla. Los usuarios podrán ingresar un valor en el campo de filtro para
+  mostrar solo los datos que coincidan.
+</p>
+
+<pre>
+<code>&lt;app-tabla [data]="datos" [columnas]="columnas" [orden]="ordenInicial"&gt;&lt;/app-tabla&gt;</code>
+</pre>
+
+<p>
+  Además de la tabla básica, hemos agregado un campo de entrada para el filtro.
+  El método `filtrar(dato)` se llama cuando los usuarios ingresan un valor en el
+  campo. Esto permite actualizar la tabla y mostrar solo los datos relevantes.
+</p>
+
+<h3>Ejemplo 3: Tabla con Paginación</h3>
+<p>
+  En este ejemplo, mostraremos cómo implementar la paginación en la tabla para
+  dividir los datos en páginas más pequeñas. Esto es útil cuando se tienen
+  grandes conjuntos de datos.
+</p>
+
+<pre>
+<code>&lt;app-tabla [data]="datos" [columnas]="columnas" [orden]="ordenInicial"&gt;&lt;/app-tabla&gt;</code>
+</pre>
+
+<p>
+  Hemos agregado una funcionalidad de paginación que permite a los usuarios
+  navegar a través de las páginas de datos. Cada página muestra un número
+  limitado de entradas, lo que mejora la experiencia del usuario.
+</p>
+
+<p>
+  Estos ejemplos proporcionan una visión general de cómo se puede utilizar y
+  personalizar el componente de tabla en diferentes situaciones. Los
+  desarrolladores pueden aprovechar estas ideas como punto de partida para crear
+  interfaces de usuario eficientes y atractivas que muestren y gestionen datos
+  de manera efectiva.
+</p>

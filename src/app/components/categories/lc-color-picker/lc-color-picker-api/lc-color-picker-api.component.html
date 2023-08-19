@@ -1,0 +1,65 @@
+<h2>API del Componente Color Picker</h2>
+<p>
+  El componente Color Picker proporciona una variedad de propiedades y métodos
+  que permiten a los desarrolladores personalizar y controlar su comportamiento,
+  apariencia y funcionalidad. A continuación, se presentan las propiedades y
+  métodos más importantes disponibles en el componente Color Picker:
+</p>
+
+<h3>Propiedades</h3>
+<h4>color: string</h4>
+<p>
+  La propiedad `color` almacena el color actual seleccionado en el Color Picker.
+  Puede ser representado en formatos como hexadecimal, RGB o HSL. Cambiar esta
+  propiedad actualizará la selección visual del color en el componente y
+  reflejará el color seleccionado por el usuario.
+</p>
+
+<h4>paleta: string[]</h4>
+<p>
+  La propiedad `paleta` define la paleta de colores disponibles para que los
+  usuarios elijan. Puede ser un arreglo de colores en formato hexadecimal. Los
+  colores de esta paleta serán presentados en el Color Picker para que los
+  usuarios puedan seleccionarlos.
+</p>
+
+<h3>Métodos</h3>
+<h4>seleccionarColor(color: string): void</h4>
+<p>
+  Este método permite a los desarrolladores seleccionar un color específico en
+  el Color Picker. El parámetro `color` debe ser un valor de color válido en
+  formato hexadecimal, RGB o HSL. Llamar a este método cambiará la selección
+  actual del color en el componente.
+</p>
+
+<h4>restablecerColor(): void</h4>
+<p>
+  El método `restablecerColor` restablece el color seleccionado al valor
+  inicial. Esto es útil cuando deseas permitir a los usuarios volver al color
+  predeterminado o eliminar la selección actual de color.
+</p>
+
+<h3>Eventos</h3>
+<h4>(colorCambiado): EventEmitter&lt;string&gt;</h4>
+<p>
+  Este evento se emite cuando el color seleccionado en el Color Picker cambia.
+  Los suscriptores pueden escuchar este evento para realizar acciones
+  adicionales en respuesta al cambio de color. El evento emite el nuevo color
+  seleccionado como un valor de cadena.
+</p>
+
+<h3>Personalización y Integración</h3>
+<p>
+  El componente Color Picker permite personalizar la paleta de colores, los
+  formatos admitidos y el diseño visual del selector de colores. Puedes integrar
+  el Color Picker con otros componentes, como campos de entrada, para crear una
+  experiencia de selección de color cohesiva en toda tu aplicación.
+</p>
+
+<p>
+  En resumen, la API del componente Color Picker proporciona una serie de
+  propiedades y métodos que permiten a los desarrolladores controlar y
+  personalizar la selección de colores en su aplicación. Con estas herramientas,
+  puedes crear una experiencia de usuario única y atractiva en relación con la
+  elección de colores personalizados.
+</p>

@@ -1,0 +1,68 @@
+<h2>Ejemplos del Componente Color Picker</h2>
+<p>
+  En esta sección, exploraremos algunos ejemplos prácticos de cómo utilizar el
+  componente Color Picker en diferentes escenarios. Estos ejemplos ayudarán a
+  los desarrolladores a comprender cómo implementar y personalizar el Color
+  Picker para adaptarlo a las necesidades específicas de su aplicación.
+</p>
+
+<h3>Ejemplo 1: Selector de Color Básico</h3>
+<p>
+  En este ejemplo, mostraremos cómo crear un selector de color simple que
+  permita a los usuarios elegir colores de una paleta predefinida. La paleta
+  incluirá colores populares como rojo, verde, azul y amarillo.
+</p>
+
+<pre>
+<code>&lt;app-color-picker [(color)]="colorSeleccionado" [paleta]="paletaPredefinida"&gt;&lt;/app-color-picker&gt;</code>
+</pre>
+
+<p>
+  En este caso, `colorSeleccionado` es una propiedad que almacena el color
+  seleccionado por el usuario, y `paletaPredefinida` define la paleta de colores
+  a mostrar. Los usuarios podrán seleccionar colores de la paleta y ver el color
+  actual reflejado en el componente.
+</p>
+
+<h3>Ejemplo 2: Selector de Color con Transparencia</h3>
+<p>
+  En este ejemplo, mostraremos cómo habilitar la selección de colores con
+  transparencia utilizando el componente Color Picker. Esto es útil cuando se
+  desean colores semitransparentes para fondos o elementos superpuestos.
+</p>
+
+<pre>
+<code>&lt;app-color-picker [(color)]="colorSeleccionado" [paleta]="paletaConTransparencia"&gt;&lt;/app-color-picker&gt;</code>
+</pre>
+
+<p>
+  En este caso, `colorSeleccionado` almacenará el color con canal alfa
+  seleccionado por el usuario, y `paletaConTransparencia` será una paleta que
+  incluya colores con diferentes niveles de transparencia. Los usuarios podrán
+  ajustar la transparencia y ver cómo afecta al color resultante.
+</p>
+
+<h3>Ejemplo 3: Personalización de Paleta y Formatos</h3>
+<p>
+  En este ejemplo, mostraremos cómo personalizar la paleta de colores y los
+  formatos admitidos por el Color Picker. También exploraremos cómo integrar el
+  Color Picker con otros componentes, como campos de entrada de color.
+</p>
+
+<pre>
+<code>&lt;app-color-picker [(color)]="colorSeleccionado" [paleta]="paletaPersonalizada" [formatos]="formatosDisponibles"&gt;&lt;/app-color-picker&gt;</code>
+</pre>
+
+<p>
+  En este ejemplo, `colorSeleccionado` almacenará el color seleccionado por el
+  usuario, `paletaPersonalizada` será una paleta que incluya colores específicos
+  para tu aplicación, y `formatosDisponibles` permitirá a los usuarios elegir
+  entre diferentes formatos de color, como hexadecimal y RGB.
+</p>
+
+<p>
+  Estos ejemplos proporcionan una idea de cómo se puede implementar y
+  personalizar el componente Color Picker para adaptarlo a las necesidades de tu
+  aplicación. Puedes aprovechar estos ejemplos como punto de partida y luego
+  adaptarlos según tus requisitos específicos.
+</p>

@@ -1,0 +1,23 @@
+:host {
+  height: -webkit-fill-available;
+  overflow: auto;
+}
+
+.side-container {
+  display: flex;
+  flex-direction: row;
+
+  .left-side {
+    position: relative;
+    .list {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+  }
+
+  .right-side {
+    flex-grow: 1;
+    padding: 1rem 2rem;
+  }
+}

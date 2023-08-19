@@ -6,7 +6,6 @@ import { SharedModule } from '../shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-
 @NgModule({
   declarations: [HeaderComponent, ShellComponent, HomeComponent],
   imports: [CommonModule, BrowserModule, SharedModule, RouterModule],

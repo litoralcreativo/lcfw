@@ -1,0 +1,8 @@
+@import "@angular/material/theming";
+@include mat-core();
+
+$primary-light: mat-color($mat-deep-purple, 50);
+
+.mdc-list-item--activated {
+  background-color: $primary-light;
+}

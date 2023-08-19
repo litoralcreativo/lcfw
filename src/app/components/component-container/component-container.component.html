@@ -1,0 +1,18 @@
+<app-section-header [sectionName]="sectionName"></app-section-header>
+<div class="side-container">
+  <div class="left-side">
+    <app-side-list></app-side-list>
+  </div>
+  <mat-divider [vertical]="true"></mat-divider>
+  <div class="right-side">
+    <div *ngIf="oae">
+      <mat-tab-group (selectedTabChange)="onTabChange($event)">
+        <mat-tab label="OVERVIEW"></mat-tab>
+        <mat-tab label="API"></mat-tab>
+        <mat-tab label="EXAMPLES"></mat-tab>
+      </mat-tab-group>
+      <mat-divider></mat-divider>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

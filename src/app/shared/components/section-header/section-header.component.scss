@@ -1,0 +1,19 @@
+@import "@angular/material/theming";
+@include mat-core();
+
+$my-primary: mat-color($mat-deep-purple, 500);
+
+.section-header {
+  background-color: $my-primary;
+  color: mat-color($mat-deep-purple, 500);
+
+  @if (lightness($my-primary) < 50) {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  padding: 1rem;
+
+  > h2 {
+    font-weight: 300;
+  }
+}
