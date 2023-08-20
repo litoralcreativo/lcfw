@@ -25,32 +25,32 @@ $bluelabel-palette: (
     800: white,
   ),
 );
-$oceano-palette: (
-  50: #e4f2fb,
-  100: #bcddf5,
-  200: #94c9f0,
-  300: #6cb3e9,
-  400: #50a3e5,
-  500: #3895e1,
-  600: #3287d4,
-  700: #2a75c1,
-  800: #2365af,
-  900: #184890,
+$terra-palette: (
+  50: #efebe8,
+  100: #d6ccc7,
+  200: #bbaaa2,
+  300: #9f887d,
+  400: #8b6e60,
+  500: #775644,
+  600: #6b4c3e,
+  700: #5b4034,
+  800: #4d342b,
+  900: #3d2720,
   contrast: (
     50: rgba(black, 0.87),
     100: rgba(black, 0.87),
     200: rgba(black, 0.87),
     300: rgba(black, 0.87),
-    400: rgba(black, 0.87),
-    500: rgba(black, 0.87),
-    600: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
     700: white,
     800: white,
   ),
 );
 
 $primary: mat.define-palette($bluelabel-palette, 700);
-$accent: mat.define-palette($oceano-palette, 600);
+$accent: mat.define-palette($terra-palette, 600);
 
 /* TYPOGRAPHY */
 $my-typography: mat.define-typography-config(

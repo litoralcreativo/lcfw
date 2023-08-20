@@ -1,0 +1,7 @@
+<div class="grid-container">
+  <mat-grid-list [cols]="this.columns | async" rowHeight="200">
+    <mat-grid-tile *ngFor="let card of cards" [colspan]="1" [rowspan]="1">
+      <app-title-description-card [content]="card"></app-title-description-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

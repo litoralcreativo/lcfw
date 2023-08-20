@@ -2,30 +2,121 @@
 @import "@angular/material/theming";
 @include mat-core();
 
-$primary-light: mat-color($bluelabel-palette, 50);
+$primary-lightest: mat-color($bluelabel-palette, 50);
+$primary-light: mat-color($bluelabel-palette, 200);
 $primary-mid: mat-color($bluelabel-palette, 500);
 $primary-dark: mat-color($bluelabel-palette, 700);
+
+$accent-lightest: mat-color($terra-palette, 50);
+$accent-light: mat-color($terra-palette, 200);
+$accent-mid: mat-color($terra-palette, 500);
+$accent-dark: mat-color($terra-palette, 700);
 
 body {
   margin: 0;
 }
 
+.primary {
+  &-bg {
+    &-light {
+      background-color: $primary-light;
+    }
+    &-mid {
+      background-color: $primary-mid;
+    }
+    &-dark {
+      background-color: $primary-dark;
+    }
+  }
+
+  &-color {
+    &-light {
+      color: rgba($color: black, $alpha: 1);
+    }
+    &-mid {
+      color: rgba($color: white, $alpha: 0.87);
+    }
+    &-dark {
+      color: rgba($color: white, $alpha: 0.87);
+    }
+  }
+}
+
+.accent {
+  &-bg {
+    &-light {
+      background-color: $accent-light;
+    }
+    &-mid {
+      background-color: $accent-mid;
+    }
+    &-dark {
+      background-color: $accent-dark;
+    }
+  }
+
+  &-color {
+    &-light {
+      color: rgba($color: black, $alpha: 1);
+    }
+    &-mid {
+      color: rgba($color: white, $alpha: 0.87);
+    }
+    &-dark {
+      color: rgba($color: white, $alpha: 0.87);
+    }
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex {
+  &-col {
+    flex-direction: column;
+  }
+  &-row {
+    flex-direction: row;
+  }
+}
+
+/* FONT WEIGHT */
+.lc-weight {
+  &-300 {
+    font-weight: 300 !important;
+  }
+  &-400 {
+    font-weight: 400 !important;
+  }
+  &-500 {
+    font-weight: 500 !important;
+  }
+  &-600 {
+    font-weight: 600 !important;
+  }
+  &-700 {
+    font-weight: 700 !important;
+  }
+}
+
+/* SCROLLBAR SECTION */
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  background-color: $primary-light;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  background-color: $primary-mid;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-  background-color: $primary-dark;
+  &-track {
+    background-color: $primary-lightest;
+  }
+  &-thumb {
+    background-color: $primary-light;
+  }
+  &-thumb:hover {
+    background-color: $primary-dark;
+  }
 }

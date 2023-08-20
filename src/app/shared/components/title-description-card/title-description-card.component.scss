@@ -1,0 +1,27 @@
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  cursor: pointer;
+
+  &:hover {
+    @extend .primary-bg-light !optional;
+  }
+
+  .mat-mdc-card-header {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.accent-divider {
+  height: 5px;
+  width: 50%;
+  margin: 1rem auto;
+}
