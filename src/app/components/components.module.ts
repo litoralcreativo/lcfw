@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ComponentsRoutingModule } from './components-routing.module';
@@ -12,6 +12,7 @@ import { SideListComponent } from './side-list/side-list.component';
 import { LcColorPickerOvComponent } from './categories/lc-color-picker/lc-color-picker-ov/lc-color-picker-ov.component';
 import { LcColorPickerApiComponent } from './categories/lc-color-picker/lc-color-picker-api/lc-color-picker-api.component';
 import { LcColorPickerExComponent } from './categories/lc-color-picker/lc-color-picker-ex/lc-color-picker-ex.component';
+import { LcTableOv01Component } from './categories/lc-table/lc-table-ov/examples/lc-table-ov01/lc-table-ov01.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { LcColorPickerExComponent } from './categories/lc-color-picker/lc-color-
     LcColorPickerOvComponent,
     LcColorPickerApiComponent,
     LcColorPickerExComponent,
+    LcTableOv01Component,
   ],
-  imports: [CommonModule, ComponentsRoutingModule, SharedModule],
+  imports: [SharedModule, ComponentsRoutingModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {}

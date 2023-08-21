@@ -4,11 +4,8 @@ import { MaterialModule } from './material/material.module';
 import { SectionHeaderComponent } from './components/section-header/section-header.component';
 import { TitleDescriptionCardComponent } from './components/title-description-card/title-description-card.component';
 import { GridOfCardsComponent } from './components/grid-of-cards/grid-of-cards.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { LcTableModule } from 'lc-table';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,15 +15,17 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
+    LcTableModule,
   ],
   exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
+    LcTableModule,
     SectionHeaderComponent,
     TitleDescriptionCardComponent,
     GridOfCardsComponent,
