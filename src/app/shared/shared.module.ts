@@ -6,12 +6,22 @@ import { TitleDescriptionCardComponent } from './components/title-description-ca
 import { GridOfCardsComponent } from './components/grid-of-cards/grid-of-cards.component';
 import { LcTableModule } from 'lc-table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CodeBoxComponent } from './components/code-box/code-box.component';
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+
+/* import * as hljs from 'highlight.js';
+import typescrypt from 'highlight.js/lib/languages/typescrypt'
+hljs.default.registerLanguage('typescript', typescrypt);
+export function highlightJsFactory() {
+  return hljs
+} */
 
 @NgModule({
   declarations: [
     SectionHeaderComponent,
     TitleDescriptionCardComponent,
     GridOfCardsComponent,
+    CodeBoxComponent,
   ],
   imports: [
     CommonModule,
@@ -19,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MaterialModule,
     LcTableModule,
+    HighlightModule,
   ],
   exports: [
     CommonModule,
@@ -26,9 +37,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MaterialModule,
     LcTableModule,
+    HighlightModule,
     SectionHeaderComponent,
     TitleDescriptionCardComponent,
     GridOfCardsComponent,
+    CodeBoxComponent,
+  ],
+  providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        coreLibraryLoader: () => import('highlight.js/lib/core'),
+        lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'), // Optional, only if you want the line numbers
+        languages: {
+          typescript: () => import('highlight.js/lib/languages/typescript'),
+          css: () => import('highlight.js/lib/languages/css'),
+          xml: () => import('highlight.js/lib/languages/xml'),
+        },
+      },
+    },
   ],
 })
 export class SharedModule {}

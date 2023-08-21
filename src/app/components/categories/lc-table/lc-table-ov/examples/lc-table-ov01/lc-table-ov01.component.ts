@@ -32,6 +32,10 @@ export class LcTableOv01Component extends CSPTable<Product> implements OnInit {
   @ViewChild(LcTableComponent, { static: true })
   table: LcTableComponent<Product>;
 
+  tsCode: string = `export type ABC = number`;
+  cssCode: string = `.example { color: gray; }`;
+  htmlCode: string = `<lc-table [dataSource]="this.dataSource" [tableColumns]="this.tableColumns"></lc-table>`;
+
   ngOnInit(): void {
     this.dataSource = timer(100).pipe(
       map<number, Product[]>((x) => {
