@@ -1,6 +1,5 @@
 @import "@angular/material/theming";
-@import "../../../../lcfw-theme.scss";
-/* @include mat-core(); */
+@import "src/lcfw-theme.scss";
 
 $my-primary: mat-color($bluelabel-palette, 600);
 

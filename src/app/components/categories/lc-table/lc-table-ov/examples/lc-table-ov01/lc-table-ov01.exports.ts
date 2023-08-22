@@ -1,3 +1,8 @@
+export const html: string = `
+<lc-table [dataSource]="dataSource" [tableColumns]="tableColumns"></lc-table>
+`.trim();
+
+export const ts: string = `
 import { Component } from '@angular/core';
 import { CSPTable, TableColumns } from 'lc-table';
 
@@ -36,15 +41,6 @@ const PRODUCTS: Product[] = [
 })
 export class LcTableOv01Component extends CSPTable<Product> {
   dataSource: Product[] = PRODUCTS;
-  tableColumns: TableColumns<Product> = {
-    name: {
-      label: 'Name',
-    },
-    price: {
-      label: 'Price',
-    },
-    stock: {
-      label: 'Amount',
-    },
-  };
+  tableColumns: TableColumns<Product>;
 }
+`.trim();

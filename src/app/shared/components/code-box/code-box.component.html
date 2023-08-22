@@ -1,14 +1,36 @@
 <div class="code-container">
-  <div class="code-block">
-    <h3>HTML</h3>
-    <pre><code [highlight]="htmlCode" [languages]="['html']"></code></pre>
+  <div class="viewer-header">
+    <span class="title">
+      <ng-content select="[lc-title]"></ng-content>
+    </span>
+    <span class="buttons">
+      <button
+        mat-icon-button
+        aria-label="Code example button"
+        (click)="toogleCodeShowed()"
+      >
+        <mat-icon>code</mat-icon>
+      </button>
+    </span>
   </div>
-  <div class="code-block">
-    <h3>CSS</h3>
-    <pre><code [highlight]="cssCode" [languages]="['css']"></code></pre>
-  </div>
-  <div class="code-block">
-    <h3>TypeScript</h3>
-    <pre><code [highlight]="tsCode" [languages]="['typescript']"></code></pre>
+  <div class="viewer-content">
+    <mat-tab-group
+      *ngIf="codeShowed"
+      dynamicHeight
+      mat-stretch-tabs="false"
+      mat-align-tabs="start"
+    >
+      <mat-tab label="HTML" *ngIf="htmlCode">
+        <pre><code [highlight]="htmlCode" [languages]="['html']"></code></pre>
+      </mat-tab>
+      <mat-tab label="TS" *ngIf="tsCode">
+        <pre><code [highlight]="tsCode" [languages]="['typescript']"></code></pre>
+      </mat-tab>
+      <mat-tab label="CSS" *ngIf="cssCode">
+        <pre><code [highlight]="cssCode" [languages]="['css']"></code></pre>
+      </mat-tab>
+    </mat-tab-group>
+    <mat-divider></mat-divider>
+    <ng-content select="[lc-content]"></ng-content>
   </div>
 </div>

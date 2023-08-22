@@ -53,8 +53,10 @@ $primary: mat.define-palette($bluelabel-palette, 700);
 $accent: mat.define-palette($terra-palette, 600);
 
 /* TYPOGRAPHY */
+// mat.define-typography-level($font-size, $line-height, $font-weight, $font-family, $letter-spacing))
 $my-typography: mat.define-typography-config(
   $font-family: "Roboto",
+  $body-2: mat.define-typography-level(16px, 28px, 400, Roboto),
 );
 
 $lcfw-theme: mat.define-light-theme(

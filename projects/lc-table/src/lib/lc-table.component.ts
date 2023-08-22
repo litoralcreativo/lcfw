@@ -13,10 +13,6 @@ export class LcTableComponent<T> implements OnInit {
   columns: Column[];
   columnNames: string[] = ['name'];
 
-  constructor() {
-    console.log('asdasd');
-  }
-
   ngOnInit(): void {
     /* Check for errors */
     if (!this.dataSource) throw new Error('[dataSource] must be provided');
@@ -24,7 +20,6 @@ export class LcTableComponent<T> implements OnInit {
       throw new Error('[columnDefinition] must be provided');
 
     this.setColumns();
-    console.log(this.columns, this.columnNames);
   }
 
   setColumns() {

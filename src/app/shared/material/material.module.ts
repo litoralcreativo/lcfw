@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRippleModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [],
@@ -38,6 +39,7 @@ import { MatRippleModule } from '@angular/material/core';
     MatIconModule,
     MatButtonModule,
     MatRippleModule,
+    MatTooltipModule,
   ],
 })
 export class MaterialModule {

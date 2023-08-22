@@ -1,1 +1,30 @@
+@import "@angular/material/theming";
+@import "src/lcfw-theme.scss";
 
+.code-container {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 24px 0;
+  border-radius: 4px;
+
+  .viewer-header {
+    padding: 8px 8px 8px 16px;
+    color: #0000008a;
+    display: flex;
+    align-items: center;
+
+    .title {
+      flex-grow: 1;
+    }
+  }
+
+  .viewer-content {
+    mat-tab-group pre {
+      margin: 0;
+      font-size: 14px;
+      line-height: 18px;
+      code {
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+    }
+  }
+}

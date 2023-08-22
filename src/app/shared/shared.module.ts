@@ -8,6 +8,7 @@ import { LcTableModule } from 'lc-table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CodeBoxComponent } from './components/code-box/code-box.component';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { HttpClientModule } from '@angular/common/http';
 
 /* import * as hljs from 'highlight.js';
 import typescrypt from 'highlight.js/lib/languages/typescrypt'
@@ -30,6 +31,7 @@ export function highlightJsFactory() {
     MaterialModule,
     LcTableModule,
     HighlightModule,
+    HttpClientModule,
   ],
   exports: [
     CommonModule,
@@ -48,7 +50,7 @@ export function highlightJsFactory() {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
         coreLibraryLoader: () => import('highlight.js/lib/core'),
-        lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'), // Optional, only if you want the line numbers
+        lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
         languages: {
           typescript: () => import('highlight.js/lib/languages/typescript'),
           css: () => import('highlight.js/lib/languages/css'),
