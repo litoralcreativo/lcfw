@@ -6,23 +6,79 @@
     <th
       mat-header-cell
       *matHeaderCellDef
-      [ngStyle]="column.definition.headerStyle"
+      [style]="column.definition.header?.style"
     >
-      {{ column.definition.label }}
+      {{ column.definition.header?.content }}
     </th>
     <td
       mat-cell
       *matCellDef="let element"
-      [ngStyle]="column.definition.dataStyle"
+      [style]="column.definition.data?.style"
+      [ngSwitch]="column.definition.data?.type"
     >
-      {{ element[column.property] }}
+      <div *ngSwitchDefault>{{ element[column.property] }}</div>
+      <div *ngSwitchCase="'date'">
+        {{
+          element[column.property] | date : column.definition.data?.pipe.format
+        }}
+      </div>
+      <div *ngSwitchCase="'currency'">
+        {{
+          element[column.property]
+            | currency
+              : column.definition.data?.pipe.currencyCode
+              : column.definition.data?.pipe.display
+              : column.definition.data?.pipe.digitsInfo
+              : column.definition.data?.pipe.locale
+        }}
+      </div>
+      <div *ngSwitchCase="'number'">
+        {{
+          element[column.property]
+            | number : column.definition.data?.pipe.digitsInfo
+        }}
+      </div>
     </td>
-    <td mat-footer-cell *matFooterCellDef>{{ 0 }}</td>
+    <td
+      mat-footer-cell
+      *matFooterCellDef
+      [style]="column.definition.footer?.style"
+    >
+      <div [ngSwitch]="column.definition.footer?.type">
+        <div *ngSwitchDefault>{{ column.definition.footer?.content }}</div>
+        <div *ngSwitchCase="'date'">
+          {{
+            column.definition.footer?.content
+              | date : column.definition.footer?.pipe.format
+          }}
+        </div>
+        <div *ngSwitchCase="'currency'">
+          {{
+            column.definition.footer?.content
+              | currency
+                : column.definition.footer?.pipe?.currencyCode
+                : column.definition.footer?.pipe?.display
+                : column.definition.footer?.pipe?.digitsInfo
+                : column.definition.footer?.pipe?.locale
+          }}
+        </div>
+        <div *ngSwitchCase="'number'">
+          {{
+            column.definition.footer?.content
+              | number : column.definition.footer?.pipe?.digitsInfo
+          }}
+        </div>
+      </div>
+    </td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
+  <tr
+    mat-header-row
+    *matHeaderRowDef="columnNames; sticky: tableConfig.stickyHeader"
+  ></tr>
   <tr mat-row *matRowDef="let row; columns: columnNames"></tr>
-  <div *ngIf="hasFooter">
-    <tr mat-footer-row *matFooterRowDef="columnNames"></tr>
-  </div>
+  <tr
+    mat-footer-row
+    *matFooterRowDef="columnNames; sticky: tableConfig.stickyFooter"
+  ></tr>
 </table>

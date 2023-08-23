@@ -1,9 +1,38 @@
+export const DATA_TYPE = {
+  string: 'string',
+  number: 'number',
+  date: 'date',
+  currency: 'currency',
+} as const;
+export type DataType = keyof typeof DATA_TYPE;
+
+type Pipeable = {
+  pipe?:
+    | { format: string }
+    | { digitsInfo: string }
+    | {
+        currencyCode: string;
+        display: string;
+        digitsInfo: string;
+      };
+};
+
+type Stylizable = {
+  style?: Partial<CSSStyleDeclaration>;
+};
+
+type Typeable = {
+  type?: DataType;
+};
+
+type Contenible = {
+  content?: string;
+};
+
 export type ColumnDefinition = {
-  label: string;
-  headerStyle?: Partial<CSSStyleDeclaration>;
-  dataStyle?: Partial<CSSStyleDeclaration>;
-  footerStyle?: Partial<CSSStyleDeclaration>;
-  footer?: () => any;
+  header: Stylizable & Contenible;
+  data?: Typeable & Stylizable & Pipeable;
+  footer?: Typeable & Stylizable & Pipeable & Contenible;
 };
 
 export type TableColumns<T> = {

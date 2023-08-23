@@ -1,15 +1,17 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Column, ColumnDefinition, TableColumns } from './models/column.model';
+import { Column, TableColumns } from './models/column.model';
+import { TableConfiguration } from './models/configuration.model';
 
 @Component({
   selector: 'lc-table',
   templateUrl: './lc-table.component.html',
-  styles: [],
+  styleUrls: ['./lc-table.component.scss'],
 })
 export class LcTableComponent<T> implements OnInit {
   @Input('dataSource') dataSource: T[] | Observable<T[]>;
   @Input('tableColumns') tableColumns: TableColumns<T>;
+  @Input('tableConfig') tableConfig: TableConfiguration<T>;
   columns: Column[];
   columnNames: string[] = ['name'];
   hasFooter: boolean = false;
@@ -37,5 +39,6 @@ export class LcTableComponent<T> implements OnInit {
 
     /* Define columnNames based on this.columns */
     this.columnNames = this.columns.map((x) => x.property);
+    this.hasFooter = this.columns.some((x) => x.definition.footer);
   }
 }
