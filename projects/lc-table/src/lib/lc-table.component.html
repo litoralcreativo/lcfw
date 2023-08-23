@@ -54,10 +54,12 @@
   <tr
     mat-header-row
     *matHeaderRowDef="columnNames; sticky: tableConfig.header?.sticky"
+    [style]="tableConfig.header?.style"
   ></tr>
   <tr mat-row *matRowDef="let row; columns: columnNames"></tr>
   <tr
     mat-footer-row
     *matFooterRowDef="columnNames; sticky: tableConfig.footer?.sticky"
+    [style]="tableConfig.footer?.style"
   ></tr>
 </table>

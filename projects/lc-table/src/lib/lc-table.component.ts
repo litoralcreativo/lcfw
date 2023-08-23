@@ -47,4 +47,18 @@ export class LcTableComponent<T> implements OnInit {
     this.columnNames = this.columns.map((x) => x.property);
     this.hasFooter = this.columns.some((x) => x.definition.footer);
   }
+
+  combineStyles(
+    ...styles: (Partial<CSSStyleDeclaration> | undefined)[]
+  ): Partial<CSSStyleDeclaration> {
+    const mergedStyles: Partial<CSSStyleDeclaration> = {};
+
+    for (const style of styles) {
+      if (style) {
+        Object.assign(mergedStyles, style);
+      }
+    }
+
+    return mergedStyles;
+  }
 }

@@ -15,7 +15,7 @@
 
 <!-- DATE TYPE -->
 <ng-template #date>
-  {{ element[column.property] | date : column.definition.data?.pipe.format }}
+  {{ element[column.property] | date : column.definition.data?.pipe?.format }}
 </ng-template>
 
 <!-- CURRENCY TYPE -->
@@ -23,17 +23,16 @@
   {{
     element[column.property]
       | currency
-        : column.definition.data?.pipe.currencyCode
-        : column.definition.data?.pipe.display
-        : column.definition.data?.pipe.digitsInfo
-        : column.definition.data?.pipe.locale
+        : column.definition.data?.pipe?.currencyCode
+        : column.definition.data?.pipe?.display
+        : column.definition.data?.pipe?.digitsInfo
   }}
 </ng-template>
 
 <!-- NUMBER TYPE -->
 <ng-template #number>
   {{
-    element[column.property] | number : column.definition.data?.pipe.digitsInfo
+    element[column.property] | number : column.definition.data?.pipe?.digitsInfo
   }}
 </ng-template>
 
