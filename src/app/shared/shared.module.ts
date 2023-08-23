@@ -10,13 +10,6 @@ import { CodeBoxComponent } from './components/code-box/code-box.component';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { HttpClientModule } from '@angular/common/http';
 
-/* import * as hljs from 'highlight.js';
-import typescrypt from 'highlight.js/lib/languages/typescrypt'
-hljs.default.registerLanguage('typescript', typescrypt);
-export function highlightJsFactory() {
-  return hljs
-} */
-
 @NgModule({
   declarations: [
     SectionHeaderComponent,

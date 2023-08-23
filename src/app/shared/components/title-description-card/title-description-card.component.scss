@@ -6,6 +6,11 @@
   bottom: 15px;
   cursor: pointer;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   &:hover {
     @extend .primary-bg-light !optional;
   }
@@ -18,6 +23,14 @@
 
 .dashboard-card-content {
   text-align: center;
+  width: -webkit-fill-available;
+  > div {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .accent-divider {

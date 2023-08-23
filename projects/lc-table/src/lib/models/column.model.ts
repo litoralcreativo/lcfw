@@ -1,5 +1,9 @@
 export type ColumnDefinition = {
   label: string;
+  headerStyle?: Partial<CSSStyleDeclaration>;
+  dataStyle?: Partial<CSSStyleDeclaration>;
+  footerStyle?: Partial<CSSStyleDeclaration>;
+  footer?: () => any;
 };
 
 export type TableColumns<T> = {
@@ -8,11 +12,9 @@ export type TableColumns<T> = {
 
 export class Column {
   readonly property: string;
-  private readonly definition: ColumnDefinition;
-  label: string;
+  readonly definition: ColumnDefinition;
   constructor(property: string, definition: ColumnDefinition) {
     this.property = property;
     this.definition = definition;
-    this.label = this.definition.label;
   }
 }

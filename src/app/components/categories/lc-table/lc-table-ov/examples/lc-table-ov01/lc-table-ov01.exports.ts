@@ -41,6 +41,16 @@ const PRODUCTS: Product[] = [
 })
 export class LcTableOv01Component extends CSPTable<Product> {
   dataSource: Product[] = PRODUCTS;
-  tableColumns: TableColumns<Product>;
+  tableColumns: TableColumns<Product> = {
+    name: {
+      label: 'Name',
+    },
+    price: {
+      label: 'Price',
+    },
+    stock: {
+      label: 'Amount',
+    },
+  };
 }
 `.trim();

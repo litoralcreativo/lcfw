@@ -12,6 +12,7 @@ export class LcTableComponent<T> implements OnInit {
   @Input('tableColumns') tableColumns: TableColumns<T>;
   columns: Column[];
   columnNames: string[] = ['name'];
+  hasFooter: boolean = false;
 
   ngOnInit(): void {
     /* Check for errors */

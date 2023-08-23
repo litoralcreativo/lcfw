@@ -42,9 +42,14 @@ export class LcTableOv01Component extends CSPTable<Product> {
     },
     price: {
       label: 'Price',
+      dataStyle: { textAlign: 'end' },
+      headerStyle: { textAlign: 'end' },
     },
     stock: {
       label: 'Amount',
     },
   };
+  constructor() {
+    super();
+  }
 }
