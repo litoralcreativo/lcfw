@@ -1,33 +1,4 @@
-export const DATA_TYPE = {
-  string: 'string',
-  number: 'number',
-  date: 'date',
-  currency: 'currency',
-} as const;
-export type DataType = keyof typeof DATA_TYPE;
-
-type Pipeable = {
-  pipe?:
-    | { format: string }
-    | { digitsInfo: string }
-    | {
-        currencyCode: string;
-        display: string;
-        digitsInfo: string;
-      };
-};
-
-type Stylizable = {
-  style?: Partial<CSSStyleDeclaration>;
-};
-
-type Typeable = {
-  type?: DataType;
-};
-
-type Contenible = {
-  content?: string;
-};
+import { Stylizable, Contenible, Typeable, Pipeable } from './types';
 
 export type ColumnDefinition = {
   header: Stylizable & Contenible;

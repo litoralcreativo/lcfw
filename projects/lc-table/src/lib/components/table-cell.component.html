@@ -1,0 +1,41 @@
+<ng-container [ngSwitch]="column.definition.data?.type">
+  <ng-container *ngSwitchCase="'date'">
+    <ng-container *ngTemplateOutlet="date"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'currency'">
+    <ng-container *ngTemplateOutlet="currency"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'number'">
+    <ng-container *ngTemplateOutlet="number"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchDefault>
+    <ng-container *ngTemplateOutlet="default"></ng-container>
+  </ng-container>
+</ng-container>
+
+<!-- DATE TYPE -->
+<ng-template #date>
+  {{ element[column.property] | date : column.definition.data?.pipe.format }}
+</ng-template>
+
+<!-- CURRENCY TYPE -->
+<ng-template #currency>
+  {{
+    element[column.property]
+      | currency
+        : column.definition.data?.pipe.currencyCode
+        : column.definition.data?.pipe.display
+        : column.definition.data?.pipe.digitsInfo
+        : column.definition.data?.pipe.locale
+  }}
+</ng-template>
+
+<!-- NUMBER TYPE -->
+<ng-template #number>
+  {{
+    element[column.property] | number : column.definition.data?.pipe.digitsInfo
+  }}
+</ng-template>
+
+<!-- DEFAULT TYPE -->
+<ng-template #default> {{ element[column.property] }} </ng-template>

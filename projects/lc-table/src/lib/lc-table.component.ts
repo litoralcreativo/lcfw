@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
+import { LcTableService } from './lc-table.service';
 import { Column, TableColumns } from './models/column.model';
 import { TableConfiguration } from './models/configuration.model';
 
@@ -11,10 +12,15 @@ import { TableConfiguration } from './models/configuration.model';
 export class LcTableComponent<T> implements OnInit {
   @Input('dataSource') dataSource: T[] | Observable<T[]>;
   @Input('tableColumns') tableColumns: TableColumns<T>;
-  @Input('tableConfig') tableConfig: TableConfiguration<T>;
+  tableConfig: TableConfiguration;
+
   columns: Column[];
   columnNames: string[] = ['name'];
   hasFooter: boolean = false;
+
+  constructor(private configuration: LcTableService) {
+    this.tableConfig = configuration.getConfig();
+  }
 
   ngOnInit(): void {
     /* Check for errors */

@@ -1,4 +1,5 @@
 <table mat-table [dataSource]="dataSource">
+  <!-- <lc-th [column]="column"></lc-th> -->
   <ng-container
     *ngFor="let column of this.columns"
     [matColumnDef]="column.property"
@@ -14,30 +15,8 @@
       mat-cell
       *matCellDef="let element"
       [style]="column.definition.data?.style"
-      [ngSwitch]="column.definition.data?.type"
     >
-      <div *ngSwitchDefault>{{ element[column.property] }}</div>
-      <div *ngSwitchCase="'date'">
-        {{
-          element[column.property] | date : column.definition.data?.pipe.format
-        }}
-      </div>
-      <div *ngSwitchCase="'currency'">
-        {{
-          element[column.property]
-            | currency
-              : column.definition.data?.pipe.currencyCode
-              : column.definition.data?.pipe.display
-              : column.definition.data?.pipe.digitsInfo
-              : column.definition.data?.pipe.locale
-        }}
-      </div>
-      <div *ngSwitchCase="'number'">
-        {{
-          element[column.property]
-            | number : column.definition.data?.pipe.digitsInfo
-        }}
-      </div>
+      <lc-table-cell [column]="column" [element]="element"></lc-table-cell>
     </td>
     <td
       mat-footer-cell
@@ -74,11 +53,11 @@
 
   <tr
     mat-header-row
-    *matHeaderRowDef="columnNames; sticky: tableConfig.stickyHeader"
+    *matHeaderRowDef="columnNames; sticky: tableConfig.header?.sticky"
   ></tr>
   <tr mat-row *matRowDef="let row; columns: columnNames"></tr>
   <tr
     mat-footer-row
-    *matFooterRowDef="columnNames; sticky: tableConfig.stickyFooter"
+    *matFooterRowDef="columnNames; sticky: tableConfig.footer?.sticky"
   ></tr>
 </table>

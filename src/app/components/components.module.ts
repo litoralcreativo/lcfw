@@ -13,6 +13,7 @@ import { LcColorPickerOvComponent } from './categories/lc-color-picker/lc-color-
 import { LcColorPickerApiComponent } from './categories/lc-color-picker/lc-color-picker-api/lc-color-picker-api.component';
 import { LcColorPickerExComponent } from './categories/lc-color-picker/lc-color-picker-ex/lc-color-picker-ex.component';
 import { LcTableOv01Component } from './categories/lc-table/lc-table-ov/examples/lc-table-ov01/lc-table-ov01.component';
+import { LcTableService } from 'lc-table';
 
 @NgModule({
   declarations: [
@@ -29,5 +30,10 @@ import { LcTableOv01Component } from './categories/lc-table/lc-table-ov/examples
   ],
   imports: [SharedModule, ComponentsRoutingModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [LcTableService],
 })
-export class ComponentsModule {}
+export class ComponentsModule {
+  constructor(private tableService: LcTableService) {
+    this.tableService.setConfig({ header: { sticky: true } });
+  }
+}

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TableConfiguration } from 'dist/lc-table/lib/models/configuration.model';
-import { CSPTable, DATA_TYPE, TableColumns } from 'lc-table';
+import { CSPTable, DATA_TYPE, LcTableService, TableColumns } from 'lc-table';
 
 type Product = {
   name: string;
@@ -124,11 +124,7 @@ export class LcTableOv01Component extends CSPTable<Product> {
       },
     },
   };
-  tableConfig: TableConfiguration<Product> = {
-    stickyHeader: true,
-    stickyFooter: true,
-  };
-  constructor() {
+  constructor(private lcTableSer5vice: LcTableService) {
     super();
   }
 
