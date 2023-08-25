@@ -32,30 +32,4 @@ import { LcTableService } from 'lc-table';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [LcTableService],
 })
-export class ComponentsModule {
-  constructor(private tableService: LcTableService) {
-    /* let fss: Partial<CSSStyleDeclaration> = {fontSize: '12px'}
-    fss.setProperty('font-size', '12px') */
-
-    this.tableService.setConfig({
-      header: {
-        sticky: true,
-        style: {
-          backgroundColor: 'rgb(245, 245, 245)',
-          color: 'gray',
-          fontSize: 'small',
-          borderBottom: '1px solid lightgray',
-          boxShadow: '0 0 5px 5px rgba(0, 0, 0, 0.2)',
-        },
-      },
-      footer: {
-        sticky: true,
-        style: {
-          backgroundColor: 'rgb(245, 245, 245)',
-          fontSize: 'small',
-          borderTop: '1px solid lightgray',
-        },
-      },
-    });
-  }
-}
+export class ComponentsModule {}

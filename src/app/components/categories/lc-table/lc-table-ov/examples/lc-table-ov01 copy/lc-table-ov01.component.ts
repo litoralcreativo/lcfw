@@ -1,17 +1,3 @@
-export const scss: string = `
-.example-container {
-  height: 300px;
-  overflow: auto;
-}
-`.trim();
-
-export const html: string = `
-<div class="example-container mat-elevation-z4" style="margin: 2rem">
-  <lc-table [dataSource]="dataSource" [tableColumns]="tableColumns"></lc-table>
-</div>
-`.trim();
-
-export const ts: string = `
 import { Component } from '@angular/core';
 import { TableConfiguration } from 'dist/lc-table/lib/models/configuration.model';
 import { CSPTable, DATA_TYPE, LcTableService, TableColumns } from 'lc-table';
@@ -28,11 +14,11 @@ const getProducts = (): Product[] => {
   return Array(10)
     .fill(1)
     .map((x, i) => ({
-      name: \`Producto \${i}\`,
+      name: `Producto ${i}`,
       price: Number((Math.random() * 1000).toFixed(2)),
       stock: Math.floor(Math.random() * 100),
       date: new Date(),
-      owner: \`owner-\${i}\`,
+      owner: `owner-${i}`,
     }));
 };
 
@@ -106,6 +92,25 @@ export class LcTableOv01Component extends CSPTable<Product> {
     },
   };
   constructor(private lcTableSer5vice: LcTableService) {
+    lcTableSer5vice.setConfig({
+      header: {
+        sticky: true,
+        style: {
+          backgroundColor: 'rgb(245, 245, 245)',
+          color: 'gray',
+          fontSize: 'small',
+          borderBottom: '1px solid lightgray',
+        },
+      },
+      footer: {
+        sticky: true,
+        style: {
+          backgroundColor: 'rgb(245, 245, 245)',
+          fontSize: 'small',
+          borderTop: '1px solid lightgray',
+        },
+      },
+    });
     super();
   }
 
@@ -125,4 +130,3 @@ export class LcTableOv01Component extends CSPTable<Product> {
     }
   }
 }
-`.trim();

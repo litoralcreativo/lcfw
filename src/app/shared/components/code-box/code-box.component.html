@@ -20,14 +20,8 @@
       mat-stretch-tabs="false"
       mat-align-tabs="start"
     >
-      <mat-tab label="HTML" *ngIf="htmlCode">
-        <pre><code [highlight]="htmlCode" [languages]="['html']"></code></pre>
-      </mat-tab>
-      <mat-tab label="TS" *ngIf="tsCode">
-        <pre><code [highlight]="tsCode" [languages]="['typescript']"></code></pre>
-      </mat-tab>
-      <mat-tab label="CSS" *ngIf="cssCode">
-        <pre><code [highlight]="cssCode" [languages]="['css']"></code></pre>
+      <mat-tab *ngFor="let codeModel of codeModels" [label]="codeModel.label">
+        <pre><code [highlight]="codeModel.code" [languages]="[codeModel.language]"></code></pre>
       </mat-tab>
     </mat-tab-group>
     <mat-divider></mat-divider>

@@ -8,7 +8,26 @@
   usuario ricas en datos.
 </p>
 
-<app-code-box title="Basic table" [htmlCode]="ex01_html" [tsCode]="ex01_ts">
+<app-code-box
+  title="Basic table"
+  [codeModels]="[
+    {
+      label: 'HTML',
+      code: ex01_html,
+      language: 'html'
+    },
+    {
+      label: 'TS',
+      code: ex01_ts,
+      language: 'typescript'
+    },
+    {
+      label: 'SCSS',
+      code: ex01_scss,
+      language: 'css'
+    }
+  ]"
+>
   <ng-container lc-title>Basic table</ng-container>
   <ng-container lc-content>
     <lc-table-ov01></lc-table-ov01>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CodeModel } from './code-box.model';
 
 @Component({
   selector: 'app-code-box',
@@ -12,9 +13,9 @@ export class CodeBoxComponent implements OnInit {
   @Input() tsCode: string;
   @Input() cssCode: string;
 
-  constructor() {
-    console.log(this.tsCode);
-  }
+  @Input() codeModels: CodeModel[] = [];
+
+  constructor() {}
 
   ngOnInit() {}
 

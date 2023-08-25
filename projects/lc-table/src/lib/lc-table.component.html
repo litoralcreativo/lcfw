@@ -1,5 +1,4 @@
 <table mat-table [dataSource]="dataSource">
-  <!-- <lc-th [column]="column"></lc-th> -->
   <ng-container
     *ngFor="let column of this.columns"
     [matColumnDef]="column.property"
@@ -16,39 +15,22 @@
       *matCellDef="let element"
       [style]="column.definition.data?.style"
     >
-      <lc-table-cell [column]="column" [element]="element"></lc-table-cell>
+      <lc-table-cell
+        [column]="column"
+        [element]="element"
+        [cellType]="'body'"
+      ></lc-table-cell>
     </td>
-    <td
-      mat-footer-cell
-      *matFooterCellDef
-      [style]="column.definition.footer?.style"
-    >
-      <div [ngSwitch]="column.definition.footer?.type">
-        <div *ngSwitchDefault>{{ column.definition.footer?.content }}</div>
-        <div *ngSwitchCase="'date'">
-          {{
-            column.definition.footer?.content
-              | date : column.definition.footer?.pipe.format
-          }}
-        </div>
-        <div *ngSwitchCase="'currency'">
-          {{
-            column.definition.footer?.content
-              | currency
-                : column.definition.footer?.pipe?.currencyCode
-                : column.definition.footer?.pipe?.display
-                : column.definition.footer?.pipe?.digitsInfo
-                : column.definition.footer?.pipe?.locale
-          }}
-        </div>
-        <div *ngSwitchCase="'number'">
-          {{
-            column.definition.footer?.content
-              | number : column.definition.footer?.pipe?.digitsInfo
-          }}
-        </div>
-      </div>
-    </td>
+    <ng-container *ngIf="hasFooter">
+      <td
+        mat-footer-cell
+        *matFooterCellDef
+        [style]="column.definition.footer?.style"
+        mat-footer-row
+      >
+        <lc-table-cell [column]="column" [cellType]="'footer'"></lc-table-cell>
+      </td>
+    </ng-container>
   </ng-container>
 
   <tr
@@ -57,9 +39,11 @@
     [style]="tableConfig.header?.style"
   ></tr>
   <tr mat-row *matRowDef="let row; columns: columnNames"></tr>
-  <tr
-    mat-footer-row
-    *matFooterRowDef="columnNames; sticky: tableConfig.footer?.sticky"
-    [style]="tableConfig.footer?.style"
-  ></tr>
+  <ng-container *ngIf="hasFooter">
+    <tr
+      mat-footer-row
+      *matFooterRowDef="columnNames; sticky: tableConfig.footer?.sticky"
+      [style]="tableConfig.footer?.style"
+    ></tr>
+  </ng-container>
 </table>

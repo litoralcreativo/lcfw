@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LcTableService } from './lc-table.service';
 import { Column, TableColumns } from './models/column.model';
@@ -23,7 +23,6 @@ export class LcTableComponent<T> implements OnInit {
   }
 
   ngOnInit(): void {
-    /* Check for errors */
     if (!this.dataSource) throw new Error('[dataSource] must be provided');
     if (!this.tableColumns)
       throw new Error('[columnDefinition] must be provided');
@@ -32,7 +31,6 @@ export class LcTableComponent<T> implements OnInit {
   }
 
   setColumns() {
-    /* Iterate this.tableColumns and create the columns */
     this.columns = Object.entries(this.tableColumns).map((x) => {
       const property = x[0] as string;
       const definition = this.tableColumns[property as keyof T];
@@ -43,22 +41,7 @@ export class LcTableComponent<T> implements OnInit {
       return new Column(property, definition);
     });
 
-    /* Define columnNames based on this.columns */
     this.columnNames = this.columns.map((x) => x.property);
     this.hasFooter = this.columns.some((x) => x.definition.footer);
-  }
-
-  combineStyles(
-    ...styles: (Partial<CSSStyleDeclaration> | undefined)[]
-  ): Partial<CSSStyleDeclaration> {
-    const mergedStyles: Partial<CSSStyleDeclaration> = {};
-
-    for (const style of styles) {
-      if (style) {
-        Object.assign(mergedStyles, style);
-      }
-    }
-
-    return mergedStyles;
   }
 }

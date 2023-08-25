@@ -1,0 +1,140 @@
+<ng-container [ngSwitch]="cellType">
+  <ng-container *ngSwitchCase="'header'">
+    <ng-container *ngTemplateOutlet="headerContainer"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'body'">
+    <ng-container *ngTemplateOutlet="bodyContainer"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'footer'">
+    <ng-container *ngTemplateOutlet="footerContainer"></ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #bodyContainer>
+  <ng-container [ngSwitch]="column.definition.data?.type">
+    <ng-container *ngSwitchCase="'date'">
+      <ng-container
+        *ngTemplateOutlet="date; context: { content: element[column.property] }"
+      ></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'currency'">
+      <ng-container
+        *ngTemplateOutlet="
+          currency;
+          context: { content: element[column.property] }
+        "
+      ></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'number'">
+      <ng-container
+        *ngTemplateOutlet="
+          number;
+          context: { content: element[column.property] }
+        "
+      ></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <ng-container
+        *ngTemplateOutlet="
+          default;
+          context: { content: element[column.property] }
+        "
+      ></ng-container>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #bodyContainer>
+  <ng-container [ngSwitch]="column.definition.data?.type">
+    <ng-container *ngSwitchCase="'date'">
+      <ng-container
+        *ngTemplateOutlet="date; context: { content: element[column.property] }"
+      ></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'currency'">
+      <ng-container
+        *ngTemplateOutlet="
+          currency;
+          context: { content: element[column.property] }
+        "
+      ></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'number'">
+      <ng-container
+        *ngTemplateOutlet="
+          number;
+          context: { content: element[column.property] }
+        "
+      ></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <ng-container
+        *ngTemplateOutlet="
+          default;
+          context: { content: element[column.property] }
+        "
+      ></ng-container>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #footerContainer>
+  <ng-container [ngSwitch]="column.definition.footer?.type">
+    <ng-container *ngSwitchCase="'date'">
+      <ng-container
+        *ngTemplateOutlet="
+          date;
+          context: { content: column.definition.footer?.content }
+        "
+      ></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'currency'">
+      <ng-container
+        *ngTemplateOutlet="
+          currency;
+          context: { content: column.definition.footer?.content }
+        "
+      ></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'number'">
+      <ng-container
+        *ngTemplateOutlet="
+          number;
+          context: { content: column.definition.footer?.content }
+        "
+      ></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <ng-container
+        *ngTemplateOutlet="
+          default;
+          context: { content: column.definition.footer?.content }
+        "
+      ></ng-container>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<!-- DATE TYPE -->
+<ng-template #date let-content="content">
+  {{ content | date : column.definition.data?.pipe?.format }}
+</ng-template>
+
+<!-- CURRENCY TYPE -->
+<ng-template #currency let-content="content">
+  {{
+    content
+      | currency
+        : column.definition.data?.pipe?.currencyCode
+        : column.definition.data?.pipe?.display
+        : column.definition.data?.pipe?.digitsInfo
+  }}
+</ng-template>
+
+<!-- NUMBER TYPE -->
+<ng-template #number let-content="content">
+  {{ content | number : column.definition.data?.pipe?.digitsInfo }}
+</ng-template>
+
+<!-- DEFAULT TYPE -->
+<ng-template #default let-content="content"> {{ content }} </ng-template>
