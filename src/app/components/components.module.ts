@@ -14,6 +14,7 @@ import { LcColorPickerApiComponent } from './categories/lc-color-picker/lc-color
 import { LcColorPickerExComponent } from './categories/lc-color-picker/lc-color-picker-ex/lc-color-picker-ex.component';
 import { LcTableOv01Component } from './categories/lc-table/lc-table-ov/examples/lc-table-ov01/lc-table-ov01.component';
 import { LcTableService } from 'lc-table';
+import { LcTableOv02Component } from './categories/lc-table/lc-table-ov/examples/lc-table-ov02/lc-table-ov02.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LcTableService } from 'lc-table';
     LcColorPickerApiComponent,
     LcColorPickerExComponent,
     LcTableOv01Component,
+    LcTableOv02Component,
   ],
   imports: [SharedModule, ComponentsRoutingModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

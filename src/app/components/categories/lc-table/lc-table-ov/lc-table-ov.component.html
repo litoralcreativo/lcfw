@@ -1,36 +1,14 @@
-<h2>Componente Tabla</h2>
-<p>
-  El componente de tabla es una herramienta poderosa para mostrar datos en una
-  presentación tabular. Permite a los desarrolladores presentar información de
-  manera organizada y fácil de entender. Con una variedad de opciones de
-  personalización y funciones, el componente de tabla es una parte esencial de
-  la caja de herramientas del desarrollador para la creación de interfaces de
-  usuario ricas en datos.
-</p>
-
-<app-code-box
-  title="Basic table"
-  [codeModels]="[
-    {
-      label: 'HTML',
-      code: ex01_html,
-      language: 'html'
-    },
-    {
-      label: 'TS',
-      code: ex01_ts,
-      language: 'typescript'
-    },
-    {
-      label: 'SCSS',
-      code: ex01_scss,
-      language: 'css'
-    }
-  ]"
->
+<app-code-box [codeModels]="code_examples_1">
   <ng-container lc-title>Basic table</ng-container>
   <ng-container lc-content>
     <lc-table-ov01></lc-table-ov01>
+  </ng-container>
+</app-code-box>
+
+<app-code-box [codeModels]="code_examples_2">
+  <ng-container lc-title>Basic table with footer and style</ng-container>
+  <ng-container lc-content>
+    <lc-table-ov02></lc-table-ov02>
   </ng-container>
 </app-code-box>
 

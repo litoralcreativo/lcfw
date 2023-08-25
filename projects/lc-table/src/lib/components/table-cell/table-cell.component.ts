@@ -21,4 +21,6 @@ export class TableCellComponent {
    * The type of cell (header, body, footer).
    */
   @Input() cellType: 'header' | 'body' | 'footer' = 'body';
+
+  constructor() {}
 }

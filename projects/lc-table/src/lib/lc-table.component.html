@@ -8,7 +8,7 @@
       *matHeaderCellDef
       [style]="column.definition.header?.style"
     >
-      {{ column.definition.header?.content }}
+      <lc-table-cell [column]="column" [cellType]="'header'"></lc-table-cell>
     </th>
     <td
       mat-cell
