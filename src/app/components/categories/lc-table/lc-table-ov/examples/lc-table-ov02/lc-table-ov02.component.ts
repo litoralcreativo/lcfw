@@ -4,7 +4,7 @@ import { Product, TABLE_COLUMNS } from './lc-table-ov02.models';
 import { CSPTable, DATA_TYPE, LcTableModule, TableColumns } from 'lc-table';
 
 const makeProducts = (): Product[] => {
-  return Array(5)
+  return Array(3)
     .fill(1)
     .map((x, i) => ({
       name: `Producto ${i}`,
@@ -30,7 +30,7 @@ export class LcTableOv02Component extends CSPTable<Product> implements OnInit {
     this.tableColumns.price!.footer!.content = this.dataSource
       .map((x) => x.price)
       .reduce((a, b) => a + b)
-      .toString();
+      .toFixed(2);
     this.tableColumns.stock!.footer!.content = this.dataSource
       .map((x) => x.stock)
       .reduce((a, b) => a + b)

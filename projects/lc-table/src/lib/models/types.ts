@@ -48,3 +48,7 @@ export type Contenible = {
 export type Stickable = {
   sticky?: boolean;
 };
+
+export type Coloreable = {
+  color?: 'primary' | 'accent' | 'warn';
+};

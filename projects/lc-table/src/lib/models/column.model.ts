@@ -16,6 +16,10 @@ export type ColumnDefinition = {
    * The footer information for the column.
    */
   footer?: Typeable & Stylizable & Pipeable & Contenible;
+
+  configuration?: {
+    sortable?: boolean;
+  };
 };
 
 /**

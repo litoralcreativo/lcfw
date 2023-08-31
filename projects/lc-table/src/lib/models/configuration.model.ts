@@ -12,4 +12,9 @@ export type TableConfiguration = {
    * The footer configuration for the table.
    */
   footer?: Stylizable & Stickable;
+
+  pagination?: Stylizable &
+    Stickable & {
+      pageSizeOptions?: number[];
+    };
 };

@@ -11,54 +11,37 @@
 </ng-container>
 
 <ng-template #headerContainer>
-  <ng-container [ngSwitch]="column.definition.data?.type">
-    <ng-container *ngSwitchCase="'date'">
-      <ng-container
-        *ngTemplateOutlet="
-          date;
-          context: { content: column.definition.header.content }
-        "
-      ></ng-container>
-    </ng-container>
-    <ng-container *ngSwitchCase="'currency'">
-      <ng-container
-        *ngTemplateOutlet="
-          currency;
-          context: { content: column.definition.header.content }
-        "
-      ></ng-container>
-    </ng-container>
-    <ng-container *ngSwitchCase="'number'">
-      <ng-container
-        *ngTemplateOutlet="
-          number;
-          context: { content: column.definition.header.content }
-        "
-      ></ng-container>
-    </ng-container>
-    <ng-container *ngSwitchDefault>
-      <ng-container
-        *ngTemplateOutlet="
-          default;
-          context: { content: column.definition.header.content }
-        "
-      ></ng-container>
-    </ng-container>
-  </ng-container>
+  <ng-container
+    *ngTemplateOutlet="
+      default;
+      context: {
+        content: column.definition.header.content
+      }
+    "
+  ></ng-container>
 </ng-template>
 
 <ng-template #bodyContainer>
   <ng-container [ngSwitch]="column.definition.data?.type">
     <ng-container *ngSwitchCase="'date'">
       <ng-container
-        *ngTemplateOutlet="date; context: { content: element[column.property] }"
+        *ngTemplateOutlet="
+          date;
+          context: {
+            content: element[column.property],
+            pipe: column.definition.data?.pipe
+          }
+        "
       ></ng-container>
     </ng-container>
     <ng-container *ngSwitchCase="'currency'">
       <ng-container
         *ngTemplateOutlet="
           currency;
-          context: { content: element[column.property] }
+          context: {
+            content: element[column.property],
+            pipe: column.definition.data?.pipe
+          }
         "
       ></ng-container>
     </ng-container>
@@ -66,7 +49,10 @@
       <ng-container
         *ngTemplateOutlet="
           number;
-          context: { content: element[column.property] }
+          context: {
+            content: element[column.property],
+            pipe: column.definition.data?.pipe
+          }
         "
       ></ng-container>
     </ng-container>
@@ -74,7 +60,10 @@
       <ng-container
         *ngTemplateOutlet="
           default;
-          context: { content: element[column.property] }
+          context: {
+            content: element[column.property],
+            pipe: column.definition.data?.pipe
+          }
         "
       ></ng-container>
     </ng-container>
@@ -87,7 +76,10 @@
       <ng-container
         *ngTemplateOutlet="
           date;
-          context: { content: column.definition.footer?.content }
+          context: {
+            content: column.definition.footer?.content,
+            pipe: column.definition.footer?.pipe
+          }
         "
       ></ng-container>
     </ng-container>
@@ -95,7 +87,10 @@
       <ng-container
         *ngTemplateOutlet="
           currency;
-          context: { content: column.definition.footer?.content }
+          context: {
+            content: column.definition.footer?.content,
+            pipe: column.definition.footer?.pipe
+          }
         "
       ></ng-container>
     </ng-container>
@@ -103,7 +98,10 @@
       <ng-container
         *ngTemplateOutlet="
           number;
-          context: { content: column.definition.footer?.content }
+          context: {
+            content: column.definition.footer?.content,
+            pipe: column.definition.footer?.pipe
+          }
         "
       ></ng-container>
     </ng-container>
@@ -111,7 +109,10 @@
       <ng-container
         *ngTemplateOutlet="
           default;
-          context: { content: column.definition.footer?.content }
+          context: {
+            content: column.definition.footer?.content,
+            pipe: column.definition.footer?.pipe
+          }
         "
       ></ng-container>
     </ng-container>
@@ -119,25 +120,26 @@
 </ng-template>
 
 <!-- DATE TYPE -->
-<ng-template #date let-content="content">
-  {{ content | date : column.definition.data?.pipe?.format }}
+<ng-template #date let-content="content" let-pipe="pipe">
+  {{ pipe ? (content | date : pipe?.format) : (content | date) }}
 </ng-template>
 
 <!-- CURRENCY TYPE -->
-<ng-template #currency let-content="content">
+<ng-template #currency let-content="content" let-pipe="pipe">
   {{
-    content
-      | currency
-        : column.definition.data?.pipe?.currencyCode
-        : column.definition.data?.pipe?.display
-        : column.definition.data?.pipe?.digitsInfo
+    pipe
+      ? (content
+        | currency : pipe.currencyCode : pipe?.display : pipe?.digitsInfo)
+      : (content | currency)
   }}
 </ng-template>
 
 <!-- NUMBER TYPE -->
-<ng-template #number let-content="content">
-  {{ content | number : column.definition.data?.pipe?.digitsInfo }}
+<ng-template #number let-content="content" let-pipe="pipe">
+  {{ pipe ? (content | number : pipe?.digitsInfo) : (content | number) }}
 </ng-template>
 
 <!-- DEFAULT TYPE -->
-<ng-template #default let-content="content"> {{ content }} </ng-template>
+<ng-template #default let-content="content" let-pipe="pipe">
+  {{ content }}
+</ng-template>

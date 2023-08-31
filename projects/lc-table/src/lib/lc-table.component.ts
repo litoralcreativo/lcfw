@@ -1,4 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { LcTableService } from './lc-table.service';
 import { Column, TableColumns } from './models/column.model';
@@ -9,28 +18,51 @@ import { TableConfiguration } from './models/configuration.model';
   templateUrl: './lc-table.component.html',
   styleUrls: ['./lc-table.component.scss'],
 })
-export class LcTableComponent<T> implements OnInit {
+export class LcTableComponent<T> implements OnInit, AfterViewInit {
   @Input('dataSource') dataSource: T[] | Observable<T[]>;
   @Input('tableColumns') tableColumns: TableColumns<T>;
-  tableConfig: TableConfiguration;
+  @Input('tableConfig') tableConfig: TableConfiguration;
+
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   columns: Column[];
   columnNames: string[] = ['name'];
   hasFooter: boolean = false;
+  _dataSource: MatTableDataSource<T>;
 
   constructor(private configuration: LcTableService) {
     this.tableConfig = configuration.getConfig();
   }
 
   ngOnInit(): void {
-    if (!this.dataSource) throw new Error('[dataSource] must be provided');
-    if (!this.tableColumns)
-      throw new Error('[columnDefinition] must be provided');
-
+    this.setDataSource();
     this.setColumns();
   }
 
-  setColumns() {
+  ngAfterViewInit(): void {
+    this.setSort();
+    this.setPaginator();
+  }
+
+  private setDataSource() {
+    if (!this.dataSource) throw new Error('[dataSource] must be provided');
+    this._dataSource = new MatTableDataSource();
+
+    if (this.dataSource instanceof Observable) {
+      this.dataSource.subscribe({
+        next: (dataSource) => {
+          this._dataSource.data = dataSource;
+        },
+      });
+    } else {
+      this._dataSource.data = this.dataSource;
+    }
+  }
+
+  private setColumns() {
+    if (!this.tableColumns)
+      throw new Error('[columnDefinition] must be provided');
     this.columns = Object.entries(this.tableColumns).map((x) => {
       const property = x[0] as string;
       const definition = this.tableColumns[property as keyof T];
@@ -43,5 +75,13 @@ export class LcTableComponent<T> implements OnInit {
 
     this.columnNames = this.columns.map((x) => x.property);
     this.hasFooter = this.columns.some((x) => x.definition.footer);
+  }
+
+  private setSort() {
+    this._dataSource.sort = this.sort;
+  }
+
+  private setPaginator() {
+    this._dataSource.paginator = this.paginator;
   }
 }

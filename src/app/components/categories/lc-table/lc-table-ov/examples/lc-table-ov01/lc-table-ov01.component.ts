@@ -3,7 +3,7 @@ import { CSPTable, TableColumns } from 'lc-table';
 import { Product, TABLE_COLUMNS } from './lc-table-ov01.models';
 
 const makeProducts = (): Product[] => {
-  return Array(5)
+  return Array(3)
     .fill(1)
     .map((x, i) => ({
       name: `Producto ${i}`,
