@@ -17,4 +17,9 @@ export type TableConfiguration = {
     Stickable & {
       pageSizeOptions?: number[];
     };
+
+  selection?: Stylizable &
+    Stickable & {
+      sellectAllToggle?: boolean;
+    };
 };

@@ -17,6 +17,7 @@ import { LcTableOv01Component } from './categories/lc-table/lc-table-ov/examples
 import { LcTableOv02Component } from './categories/lc-table/lc-table-ov/examples/lc-table-ov02/lc-table-ov02.component';
 import { LcTableOv03Component } from './categories/lc-table/lc-table-ov/examples/lc-table-ov03/lc-table-ov03.component';
 import { LcTableOv04Component } from './categories/lc-table/lc-table-ov/examples/lc-table-ov04/lc-table-ov04.component';
+import { LcTableOv05Component } from './categories/lc-table/lc-table-ov/examples/lc-table-ov05/lc-table-ov05.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LcTableOv04Component } from './categories/lc-table/lc-table-ov/examples
     LcTableOv02Component,
     LcTableOv03Component,
     LcTableOv04Component,
+    LcTableOv05Component,
   ],
   imports: [SharedModule, ComponentsRoutingModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

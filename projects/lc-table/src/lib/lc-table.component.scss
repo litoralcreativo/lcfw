@@ -1,3 +1,12 @@
+:host {
+  display: grid;
+  overflow: auto;
+}
+
 table {
   width: 100%;
+
+  td {
+    white-space: nowrap;
+  }
 }
