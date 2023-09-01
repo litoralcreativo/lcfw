@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CodeBoxComponent } from './components/code-box/code-box.component';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { HttpClientModule } from '@angular/common/http';
+import { JsonViewer } from './components/code-box/json-viewer/json-viewer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     LcTableModule,
     HighlightModule,
     HttpClientModule,
+    JsonViewer,
   ],
   exports: [
     CommonModule,
@@ -37,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     TitleDescriptionCardComponent,
     GridOfCardsComponent,
     CodeBoxComponent,
+    JsonViewer,
   ],
   providers: [
     {
@@ -48,6 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
           typescript: () => import('highlight.js/lib/languages/typescript'),
           css: () => import('highlight.js/lib/languages/css'),
           xml: () => import('highlight.js/lib/languages/xml'),
+          json: () => import('highlight.js/lib/languages/json'),
         },
       },
     },

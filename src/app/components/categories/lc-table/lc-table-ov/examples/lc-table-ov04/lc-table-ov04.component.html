@@ -1,12 +1,16 @@
 <div
   class="mat-elevation-z4"
-  style="margin: 2rem; border-radius: 5px; overflow: hidden"
+  style="
+    margin: 2rem;
+    border-radius: 5px;
+    max-height: 500px;
+    overflow: auto;
+    width: fit-content;
+  "
 >
-  <div style="max-height: 500px; overflow: auto">
-    <lc-table
-      [dataSource]="dataSource"
-      [tableColumns]="tableColumns"
-      [tableConfig]="tableConfig"
-    ></lc-table>
-  </div>
+  <lc-table
+    [dataSource]="dataSource"
+    [tableColumns]="tableColumns"
+    [tableConfig]="tableConfig"
+  ></lc-table>
 </div>

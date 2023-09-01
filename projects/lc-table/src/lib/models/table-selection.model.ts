@@ -15,14 +15,12 @@ export class LcTableSelction<T> extends LcAbstractDataSourceTable<T> {
     );
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this._dataSource.data.length;
     return numSelected == numRows;
   }
 
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
   toggleAllRows() {
     this.isAllSelected()
       ? this.selection.clear()

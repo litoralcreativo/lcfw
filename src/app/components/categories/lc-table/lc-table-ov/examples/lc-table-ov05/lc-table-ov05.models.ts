@@ -28,9 +28,6 @@ export const TABLE_COLUMNS: TableColumns<Product> = {
     header: {
       content: 'Date',
     },
-    data: {
-      type: 'date',
-    },
   },
 };
 

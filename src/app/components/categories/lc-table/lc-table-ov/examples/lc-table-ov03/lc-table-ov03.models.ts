@@ -63,4 +63,29 @@ export const TABLE_COLUMNS: TableColumns<Product> = {
       style: { textAlign: 'end' },
     },
   },
+  date: {
+    header: {
+      content: 'Date',
+    },
+    data: {
+      type: DATA_TYPE.date,
+    },
+  },
+};
+
+export const makeProducts = (): Product[] => {
+  return Array(17)
+    .fill(1)
+    .map((x, i) => {
+      const prod = {
+        name: `Producto ${i}`,
+        unitPirce: Number((Math.random() * 1000).toFixed(2)),
+        price: 0,
+        amount: Math.floor(Math.random() * 100),
+        date: new Date(),
+        owner: `owner-${i}`,
+      };
+      prod.price = Number((prod.unitPirce * prod.amount).toFixed(2));
+      return prod;
+    });
 };

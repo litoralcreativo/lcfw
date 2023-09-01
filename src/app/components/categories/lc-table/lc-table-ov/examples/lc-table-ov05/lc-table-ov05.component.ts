@@ -25,6 +25,7 @@ export class LcTableOv05Component extends CSPTable<Product> implements OnInit {
       },
       sticky: true,
     },
+    pagination: {},
   };
   constructor() {
     super();

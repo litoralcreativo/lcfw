@@ -1,12 +1,21 @@
 :host {
+  display: flex;
+  max-height: inherit;
+  flex-direction: column;
+}
+
+.table-wrapper {
   display: grid;
   overflow: auto;
+  max-height: inherit;
 }
 
 table {
-  width: 100%;
-
   td {
     white-space: nowrap;
   }
+}
+
+mat-paginator {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }

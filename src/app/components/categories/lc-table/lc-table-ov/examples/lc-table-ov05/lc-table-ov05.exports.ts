@@ -1,40 +1,81 @@
-export const scss: string = ``.trim();
+export const scss: string = `
+.example-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  padding: 2rem;
+  gap: 2rem;
+
+  > div {
+    max-height: inherit;
+    height: inherit;
+    max-height: 380px;
+
+    .table-container {
+      border-radius: 5px;
+      overflow: hidden;
+      max-height: 500px;
+      width: fit-content;
+      height: fit-content;
+    }
+  }
+}
+`.trim();
 
 export const html: string = `
-<div class="mat-elevation-z4" style="margin: 2rem">
-  <lc-table [dataSource]="dataSource" [tableColumns]="tableColumns"></lc-table>
+<div class="example-container">
+  <div>
+    <div class="table-container mat-elevation-z4">
+      <lc-table
+        #table
+        [dataSource]="dataSource"
+        [tableColumns]="tableColumns"
+        [tableConfig]="tableConfig"
+      ></lc-table>
+    </div>
+  </div>
+  <div>
+    <app-json-viewer [code]="table.selection.selected"></app-json-viewer>
+  </div>
 </div>
+
 `.trim();
 
 export const ts: string = `
-import { Component } from '@angular/core';
-import { CSPTable, TableColumns } from 'lc-table';
-import { Product, TABLE_COLUMNS } from './lc-table-ov01.models';
-
-const makeProducts = (): Product[] => {
-  return Array(5)
-    .fill(1)
-    .map((x, i) => ({
-      name: \`Producto \${i}\`,
-      price: Number((Math.random() * 1000).toFixed(2)),
-      stock: Math.floor(Math.random() * 100),
-      date: new Date(),
-      owner: \`owner-\${i}\`,
-    }));
-};
+import { Component, OnInit } from '@angular/core';
+import { makeProducts, Product, TABLE_COLUMNS } from './lc-table-ov05.models';
+import { CSPTable, TableColumns, TableConfiguration } from 'lc-table';
 
 @Component({
-  selector: 'lc-table-ov01',
-  templateUrl: './lc-table-ov01.component.html',
-  styleUrls: ['./lc-table-ov01.component.scss'],
+  selector: 'lc-table-ov05',
+  templateUrl: './lc-table-ov05.component.html',
+  styleUrls: ['./lc-table-ov05.component.scss'],
 })
-export class LcTableOv01Component extends CSPTable<Product> {
+export class LcTableOv05Component extends CSPTable<Product> implements OnInit {
   dataSource: Product[] = makeProducts();
   tableColumns: TableColumns<Product> = TABLE_COLUMNS;
+  tableConfig: TableConfiguration = {
+    header: {
+      style: {
+        backgroundColor: '#37474f',
+        color: 'white',
+      },
+    },
+    selection: {
+      sellectAllToggle: true,
+      style: {
+        backgroundColor: 'white',
+        borderRight: '1px solid #37474f33',
+      },
+      sticky: true,
+    },
+    pagination: {},
+  };
   constructor() {
     super();
   }
+  ngOnInit(): void {}
 }
+
 `.trim();
 
 export const models: string = `
@@ -64,5 +105,23 @@ export const TABLE_COLUMNS: TableColumns<Product> = {
       content: 'Price',
     },
   },
+  date: {
+    header: {
+      content: 'Date',
+    },
+  },
 };
+
+export const makeProducts = (): Product[] => {
+  return Array(7)
+    .fill(1)
+    .map((x, i) => ({
+      name: \`Producto \${i}\`,
+      price: Number((Math.random() * 1000).toFixed(2)),
+      stock: Math.floor(Math.random() * 100),
+      date: new Date(),
+      owner: \`owner-\${i}\`,
+    }));
+};
+
 `.trim();

@@ -52,11 +52,11 @@ export class LcTableOverviewComponent implements OnInit {
       code: ex01_ts,
       language: 'typescript',
     },
-    {
+    /* {
       label: 'SCSS',
       code: ex01_scss,
       language: 'css',
-    },
+    }, */
     {
       label: 'lc-table-ov01.models.ts',
       code: ex01_models,
@@ -75,11 +75,11 @@ export class LcTableOverviewComponent implements OnInit {
       code: ex02_ts,
       language: 'typescript',
     },
-    {
+    /* {
       label: 'SCSS',
       code: ex02_scss,
       language: 'css',
-    },
+    }, */
     {
       label: 'lc-table-ov02.models.ts',
       code: ex02_models,
@@ -98,11 +98,11 @@ export class LcTableOverviewComponent implements OnInit {
       code: ex03_ts,
       language: 'typescript',
     },
-    {
+    /* {
       label: 'SCSS',
       code: ex03_scss,
       language: 'css',
-    },
+    }, */
     {
       label: 'lc-table-ov03.models.ts',
       code: ex03_models,
@@ -121,11 +121,11 @@ export class LcTableOverviewComponent implements OnInit {
       code: ex04_ts,
       language: 'typescript',
     },
-    {
+    /* {
       label: 'SCSS',
       code: ex04_scss,
       language: 'css',
-    },
+    }, */
     {
       label: 'lc-table-ov04.models.ts',
       code: ex04_models,

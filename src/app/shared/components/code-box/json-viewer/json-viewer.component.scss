@@ -1,0 +1,18 @@
+:host {
+  height: 100%;
+}
+
+.code-container {
+  border: 1px solid lightgray;
+  overflow: auto;
+  box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  height: inherit;
+}
+
+::ng-deep .code-container {
+  > pre > code {
+    line-height: 16px;
+    font-size: 14px;
+    background-color: transparent !important;
+  }
+}

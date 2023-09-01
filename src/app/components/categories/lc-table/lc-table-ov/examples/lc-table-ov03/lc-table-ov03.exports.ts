@@ -1,49 +1,78 @@
 export const scss: string = ``.trim();
 
 export const html: string = `
-<div class="mat-elevation-z4" style="margin: 2rem">
-  <lc-table [dataSource]="dataSource" [tableColumns]="tableColumns"></lc-table>
+<div
+  class="mat-elevation-z4"
+  style="
+    margin: 2rem;
+    border-radius: 5px;
+    max-height: 500px;
+    width: fit-content;
+  "
+>
+  <lc-table
+    [dataSource]="dataSource"
+    [tableColumns]="tableColumns"
+    [tableConfig]="tableConfig"
+  ></lc-table>
 </div>
+
 `.trim();
 
 export const ts: string = `
-import { Component } from '@angular/core';
-import { CSPTable, TableColumns } from 'lc-table';
-import { Product, TABLE_COLUMNS } from './lc-table-ov01.models';
-
-const makeProducts = (): Product[] => {
-  return Array(5)
-    .fill(1)
-    .map((x, i) => ({
-      name: \`Producto \${i}\`,
-      price: Number((Math.random() * 1000).toFixed(2)),
-      stock: Math.floor(Math.random() * 100),
-      date: new Date(),
-      owner: \`owner-\${i}\`,
-    }));
-};
+import { Component, OnInit } from '@angular/core';
+import { makeProducts, Product, TABLE_COLUMNS } from './lc-table-ov03.models';
+import {
+  CSPTable,
+  TableColumns,
+  TableConfiguration,
+} from 'lc-table';
 
 @Component({
-  selector: 'lc-table-ov01',
-  templateUrl: './lc-table-ov01.component.html',
-  styleUrls: ['./lc-table-ov01.component.scss'],
+  selector: 'lc-table-ov03',
+  templateUrl: './lc-table-ov03.component.html',
+  styleUrls: ['./lc-table-ov03.component.scss'],
 })
-export class LcTableOv01Component extends CSPTable<Product> {
+export class LcTableOv03Component extends CSPTable<Product> implements OnInit {
   dataSource: Product[] = makeProducts();
   tableColumns: TableColumns<Product> = TABLE_COLUMNS;
+  tableConfig: TableConfiguration = {
+    header: {
+      sticky: true,
+      style: {
+        fontWeight: '500',
+        backgroundColor: '#37474f',
+        color: 'white',
+      },
+    },
+    footer: {
+      sticky: true,
+      style: {
+        fontWeight: '500',
+        backgroundColor: '#eceff1',
+      },
+    },
+  };
   constructor() {
     super();
+  }
+  ngOnInit(): void {
+    this.tableColumns.price!.footer!.content = this.dataSource
+      .map((x) => x.price)
+      .reduce((a, b) => a + b)
+      .toFixed(2);
   }
 }
 `.trim();
 
 export const models: string = `
-import { TableColumns } from 'lc-table';
+import { DATA_TYPE, TableColumns } from 'lc-table';
 
 export type Product = {
   name: string;
+  unitPirce: number;
+  amount: number;
   price: number;
-  stock: number;
   date: Date;
   owner: string;
 };
@@ -53,16 +82,79 @@ export const TABLE_COLUMNS: TableColumns<Product> = {
     header: {
       content: 'Name',
     },
+    footer: {
+      content: 'Total',
+    },
   },
-  stock: {
+  amount: {
     header: {
       content: 'Amount',
+    },
+    footer: {},
+  },
+  unitPirce: {
+    header: {
+      content: 'Unit price',
+      style: { textAlign: 'end' },
+    },
+    data: {
+      type: DATA_TYPE.currency,
+      pipe: {
+        currencyCode: 'USD',
+        display: 'symbol-narrow',
+        digitsInfo: '',
+      },
+      style: { textAlign: 'end' },
     },
   },
   price: {
     header: {
       content: 'Price',
+      style: { textAlign: 'end' },
+    },
+    data: {
+      type: DATA_TYPE.currency,
+      pipe: {
+        currencyCode: 'USD',
+        display: 'symbol-narrow',
+        digitsInfo: '',
+      },
+      style: { textAlign: 'end' },
+    },
+    footer: {
+      type: DATA_TYPE.currency,
+      pipe: {
+        currencyCode: 'USD',
+        display: 'symbol-narrow',
+        digitsInfo: '',
+      },
+      style: { textAlign: 'end' },
     },
   },
+  date: {
+    header: {
+      content: 'Date',
+    },
+    data: {
+      type: DATA_TYPE.date,
+    },
+  },
+};
+
+export const makeProducts = (): Product[] => {
+  return Array(17)
+    .fill(1)
+    .map((x, i) => {
+      const prod = {
+        name: \`Producto \${i}\`,
+        unitPirce: Number((Math.random() * 1000).toFixed(2)),
+        price: 0,
+        amount: Math.floor(Math.random() * 100),
+        date: new Date(),
+        owner: \`owner-\${i}\`,
+      };
+      prod.price = Number((prod.unitPirce * prod.amount).toFixed(2));
+      return prod;
+    });
 };
 `.trim();

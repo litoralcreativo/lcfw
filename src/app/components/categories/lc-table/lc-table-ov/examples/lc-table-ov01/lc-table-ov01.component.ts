@@ -1,18 +1,6 @@
 import { Component } from '@angular/core';
 import { CSPTable, TableColumns } from 'lc-table';
-import { Product, TABLE_COLUMNS } from './lc-table-ov01.models';
-
-const makeProducts = (): Product[] => {
-  return Array(3)
-    .fill(1)
-    .map((x, i) => ({
-      name: `Producto ${i}`,
-      price: Number((Math.random() * 1000).toFixed(2)),
-      stock: Math.floor(Math.random() * 100),
-      date: new Date(),
-      owner: `owner-${i}`,
-    }));
-};
+import { makeProducts, Product, TABLE_COLUMNS } from './lc-table-ov01.models';
 
 @Component({
   selector: 'lc-table-ov01',

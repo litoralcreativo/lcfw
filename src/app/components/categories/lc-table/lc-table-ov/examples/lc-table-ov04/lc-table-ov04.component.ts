@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { makeProducts, Product, TABLE_COLUMNS } from './lc-table-ov04.models';
-import {
-  CSPTable,
-  DATA_TYPE,
-  LcTableModule,
-  TableColumns,
-  TableConfiguration,
-} from 'lc-table';
+import { CSPTable, TableColumns, TableConfiguration } from 'lc-table';
 
 @Component({
   selector: 'lc-table-ov04',

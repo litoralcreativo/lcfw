@@ -1,30 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Product, TABLE_COLUMNS } from './lc-table-ov03.models';
-import {
-  CSPTable,
-  DATA_TYPE,
-  LcTableModule,
-  TableColumns,
-  TableConfiguration,
-} from 'lc-table';
-
-const makeProducts = (): Product[] => {
-  return Array(17)
-    .fill(1)
-    .map((x, i) => {
-      const prod = {
-        name: `Producto ${i}`,
-        unitPirce: Number((Math.random() * 1000).toFixed(2)),
-        price: 0,
-        amount: Math.floor(Math.random() * 100),
-        date: new Date(),
-        owner: `owner-${i}`,
-      };
-      prod.price = Number((prod.unitPirce * prod.amount).toFixed(2));
-      return prod;
-    });
-};
+import { makeProducts, Product, TABLE_COLUMNS } from './lc-table-ov03.models';
+import { CSPTable, TableColumns, TableConfiguration } from 'lc-table';
 
 @Component({
   selector: 'lc-table-ov03',
