@@ -10,18 +10,6 @@ export const DATA_TYPE = {
 export type DataType = keyof typeof DATA_TYPE;
 
 /**
- * Represents the pipeable options for columns.
- */
-export type Pipeable = {
-  pipe?: {
-    currencyCode?: string;
-    display?: string;
-    digitsInfo?: string;
-    format?: string;
-  };
-};
-
-/**
  * Represents the stylizable options for columns.
  */
 export type Stylizable = {
@@ -34,6 +22,43 @@ export type Stylizable = {
 export type Typeable = {
   type?: DataType;
 };
+export type Pipeable = NumberTypePipe | CurrencyTypePipe | DateTypePipe;
+
+/**
+ * Specific types and pipes
+ */
+/* export type NumberType = {
+  type?: 'number';
+} & NumberTypePipe; */
+export type NumberTypePipe = {
+  pipe?: {
+    digitsInfo?: string;
+  };
+};
+
+/* export type CurrencyType = {
+  type?: 'currency';
+} & CurrencyTypePipe; */
+export type CurrencyTypePipe = {
+  pipe?: {
+    currencyCode?: string;
+    display?: 'code' | 'symbol' | 'symbol-narrow' | string | boolean;
+    digitsInfo?: string;
+  };
+};
+
+/* export type DateType = {
+  type?: 'date';
+} & DateTypePipe; */
+export type DateTypePipe = {
+  pipe: {
+    format?: string;
+  };
+};
+
+/* export type StringType = {
+  type?: 'string';
+}; */
 
 /**
  * Represents the contenible options for columns.
@@ -52,3 +77,5 @@ export type Stickable = {
 export type Coloreable = {
   color?: 'primary' | 'accent' | 'warn';
 };
+
+export type FilterPredicate<T> = (data: T) => boolean;

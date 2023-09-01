@@ -68,7 +68,7 @@ export const TABLE_COLUMNS: TableColumns<Product> = {
       content: 'Date',
     },
     data: {
-      type: DATA_TYPE.date,
+      type: 'date',
     },
   },
 };

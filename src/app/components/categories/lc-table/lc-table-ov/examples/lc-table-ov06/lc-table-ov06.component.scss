@@ -1,0 +1,21 @@
+.example-container {
+  margin: 2rem;
+
+  .form-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .filter-container {
+    margin: 1rem 0;
+  }
+}
+
+.gray {
+  font-weight: 500;
+  color: gray;
+
+  &.green {
+    color: green;
+  }
+}

@@ -52,6 +52,7 @@
         mat-sort-header
         [disabled]="!column.definition.configuration?.sortable"
         [style]="column.definition.header?.style"
+        class="col-align-{{ column.definition.header?.align }}"
       >
         <lc-table-cell [column]="column" [cellType]="'header'"></lc-table-cell>
       </th>

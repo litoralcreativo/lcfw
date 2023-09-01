@@ -19,3 +19,15 @@ table {
 mat-paginator {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
+
+::ng-deep .col-align- {
+  &left > div {
+    float: left;
+  }
+  &center > div {
+    float: center;
+  }
+  &right > div {
+    float: right;
+  }
+}

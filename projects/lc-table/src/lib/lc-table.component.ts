@@ -9,6 +9,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
+import { FilterPredicate } from '../public-api';
 import { LcTableService } from './lc-table.service';
 import { Column, TableColumns } from './models/column.model';
 import { TableConfiguration } from './models/configuration.model';
@@ -93,5 +94,13 @@ export class LcTableComponent<T>
 
   private setPaginator() {
     this._dataSource.paginator = this.paginator;
+  }
+
+  setFilterPredicate(filterPredicate: FilterPredicate<T>) {
+    this._dataSource.filterPredicate = filterPredicate;
+  }
+
+  filter() {
+    this._dataSource.filter = '' + Math.random();
   }
 }

@@ -7,7 +7,10 @@ export type ColumnDefinition = {
   /**
    * The header information for the column.
    */
-  header: Stylizable & Contenible;
+  header: Stylizable &
+    Contenible & {
+      align?: 'left' | ' center' | 'right';
+    };
   /**
    * The data information for the column.
    */

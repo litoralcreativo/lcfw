@@ -11,14 +11,7 @@
 </ng-container>
 
 <ng-template #headerContainer>
-  <ng-container
-    *ngTemplateOutlet="
-      default;
-      context: {
-        content: column.definition.header.content
-      }
-    "
-  ></ng-container>
+  <span>{{ column.definition.header.content }}</span>
 </ng-template>
 
 <ng-template #bodyContainer>

@@ -35,6 +35,13 @@ import {
   models as ex05_models,
 } from './examples/lc-table-ov05/lc-table-ov05.exports';
 
+import {
+  html as ex06_html,
+  ts as ex06_ts,
+  scss as ex06_scss,
+  models as ex06_models,
+} from './examples/lc-table-ov06/lc-table-ov06.exports';
+
 @Component({
   selector: 'app-lc-table-ov',
   templateUrl: './lc-table-ov.component.html',
@@ -152,6 +159,29 @@ export class LcTableOverviewComponent implements OnInit {
     {
       label: 'lc-table-ov04.models.ts',
       code: ex05_models,
+      language: 'typescript',
+    },
+  ];
+
+  code_examples_6: CodeModel[] = [
+    {
+      label: 'HTML',
+      code: ex06_html,
+      language: 'html',
+    },
+    {
+      label: 'TS',
+      code: ex06_ts,
+      language: 'typescript',
+    },
+    /* {
+      label: 'SCSS',
+      code: ex06_scss,
+      language: 'css',
+    }, */
+    {
+      label: 'lc-table-ov04.models.ts',
+      code: ex06_models,
       language: 'typescript',
     },
   ];
